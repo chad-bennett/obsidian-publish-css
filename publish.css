@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=Solway:wght@700&display=swap");
+
+/* set fonts to default system fonts */
+:root {
+  --font-family-editor: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  --font-monospace: ui-monospace, Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-title: solway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Microsoft YaHei Light", serif;
+  --text-highlight-bg: #ccdba4 !important;
+}
+
+/*reset body*/
+body {
+  background-image: none;
+  background: #f5f5f0;
+}
+
+/* font and line spacing */
+.markdown-preview-view {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  letter-spacing: 0rem;
+}
+
+/* more space between center content and scroll bar */
+.markdown-preview-view {
+  padding-right: 3rem;
+}
+
+/* lock width of overall layout*/
+.site-body {
+  margin: auto;
+  max-width: 1400px;
+}
+
+/* more space between page title and content */
+.page-header {
+  margin-bottom: 1rem;
+  display: none;
+}
+
+/* left column */
+.site-body-left-column {
+  background-color: transparent;
+  border-right: none;
+}
+/* add image above left column */
+.site-body-left-column-site-name::before {
+  background: none;
+  display: block;
+  content: url(https://chad-bennett.github.io/links/meCircle.png);
+  width: 100%;
+}
+
+/* right column */
+.site-body-right-column {
+  margin: 0 20px;
+}
+
+/* bolder site title */
+.site-body-left-column-site-name {
+  font-weight: 700;
+  text-align: center;
+}
+
+/* search bar tweak */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+  background: #e9e9e4 !important;
+}
+
+/* add line separator to backlinks */
+.published-container .backlinks {
+  border-radius: 0.5rem;
+  padding: 20px;
+  border-top: 0px solid transparent;
+  background-image: none;
+  background-color: #e9e9e4;
+  box-shadow: inset 1px 1px 3px #88888888;
+  border-right: 0.5px solid #ddd;
+  border-bottom: 0.5px solid #ddd;
+}
+
+/* outgoing link arrow */
+.external-link::after {
+  font-size: 0.9rem;
+}
+
+/* fix bullets */
+.markdown-preview-view ul {
+  list-style-type: none;
+}
+
+.markdown-preview-view ul li::before {
+  content: "\2022";
+  color: var(--color-accent);
+  margin-right: 0.3rem;
+}
+
+/* hover and active links in menus */
+.outline-view-outer .collapsible-item-self.mod-active,
+.outline-view-outer .collapsible-item-self:hover,
+.nav-view-outer .collapsible-item-self.mod-active,
+.nav-view-outer .collapsible-item-self:hover {
+  background-color: transparent;
+  text-decoration: underline;
+  color: var(--color-accent) !important;
+  font-weight: 600;
+}
+
+/* menu active and hover */
+.outline-view-outer .tree-item-self.mod-active,
+.nav-view-outer .tree-item-self.mod-active {
+  background-color: var(--color-gray-lightest);
+  box-shadow: var(--shadow);
+  border-right: 0.5px solid #aaa;
+  border-bottom: 0.5px solid #aaa;
+  width: 99%;
+}
+.outline-view-outer .tree-item-self:hover,
+.tree-item-self.is-clickable:hover {
+  background-color: var(--color-gray-lightest-fade);
+  width: 99%;
+}
+
+/* remove internal link brackets */
+.internal-link::before,
+.internal-link::after {
+  display: none;
+}
+
+/*link styling*/
+.markdown-preview-view .internal-link,
+.markdown-preview-view a {
+  color: var(--color-accent) !important;
+  text-decoration: none;
+}
+
+.markdown-preview-view a:hover {
+  color: var(--color-blue) !important;
+  background: transparent !important;
+  text-decoration: underline !important;
+}
+
+/* blockquote background color */
+.markdown-preview-view blockquote {
+  background: var(--color-gray-lightest-fade);
+}
+
+/* change highlight when selecting an item in the outline - doesn't work yet */
+.obsidian-search-match-highlight {
+  background: var(--color-green-lightest) !important;
+}
+
+/* fix higlight color */
+.markdown-preview-view mark {
+  background-color: var(--color-green-lightest);
+}
+
+/* browser highlight color - doesn't work yet */
+::selection {
+  background: var(--color-purple-lightest) !important;
+}
+
+/* tags */
+.markdown-preview-view .tag,
+a.tag {
+  background-color: var(--color-purple-lightest) !important;
+  color: var(--color-dark) !important;
+  border-radius: 5px;
+  border: 0px solid transparent;
+  box-shadow: var(--shadow);
+  border-right: 0.5px solid #aaa;
+  border-bottom: 0.5px solid #aaa;
+}
+
+.markdown-preview-view .tag:hover,
+a.tag:hover {
+  background-color: var(--color-purple-light) !important;
+  color: var(--color-light) !important;
+}
+
+/* search bar */
+.search-view-container .search-bar {
+  box-shadow: inset 1px 1px 3px #88888888;
+  border-right: 0.5px solid #ddd;
+  border-bottom: 0.5px solid #ddd;
+}
+
+/* navigation slider on small screens */
+@media screen and (max-width: 750px) {
+  .published-container.has-navigation .nav-backdrop {
+    background-color: var(--color-light);
+  }
+}
+
+/*interactive graph styling */
+.graph-view-container {
+  border: 0px solid transparent;
+  background-color: #e9e9e4;
+  box-shadow: inset 1px 1px 3px #88888888;
+  border-right: 0.5px solid #ddd;
+  border-bottom: 0.5px solid #ddd;
+}
+
+/* utility classes */
+.right {
+  float: right;
+  width: 25%;
+  max-width: 25%;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.left {
+  float: left;
+  width: 25%;
+  max-width: 25%;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .right,
+  .left {
+    float: none;
+    clear: both;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hideSmall {
+    display: none;
+  }
+}
+
+/*graph view styling - does this work?*/
+
+/*for tag color*/
+.theme-light .graph-view.color-fill-tag {
+  color: #886b97 !important;
+}
+
+/*for file attachment color*/
+.theme-light .graph-view.color-fill-attachment {
+  color: #17a2b8 !important;
+}
+
+/*for unresolved (not made but linked)notes*/
+.graph-view.color-fill-unresolved {
+  color: #8bd1dc60 !important;
+  opacity: 1;
+}
+
+/*for color of arrow if you enable it in graph settings*/
+.graph-view.color-arrow {
+  color: #d669bc !important;
+}
+
+/*for the color of node*/
+.graph-view.color-fill {
+  color: #92a85b !important;
+}
+
+/*for the color of the strings attaching nodes together*/
+.graph-view.color-line {
+  color: #b6b5af !important;
+}
+
+/*for text on the nodes ( name of notes )*/
+.graph-view.color-text {
+  color: #696966 !important;
+}
+
+/*the node color but when you hover on the node*/
+.graph-view.color-fill-highlight {
+  color: #117a8b !important;
+}
+
+/*the line color which join the notes but when you hover on the node*/
+.graph-view.color-line-highlight {
+  color: #000000 !important;
+}
+
+/* responsive iframe */
+.iframeDiv {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
