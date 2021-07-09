@@ -1,41 +1,82 @@
-@import url("https://fonts.googleapis.com/css2?family=Solway:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+@font-face {
+	font-family: 'bogart';
+	src: url('https://chad-bennett.github.io/links/bogart-semibold.woff2') format('woff2'),
+	     url('https://chad-bennett.github.io/links/bogart-semibold.woff') format('woff'),
+	     url('https://chad-bennett.github.io/links/bogart-semibold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
 
 /* set fonts to default system fonts */
 :root {
-  --font-family-editor: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  --font-family-editor: 'DM Sans', inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
   --font-monospace: ui-monospace, Menlo, Monaco, "Cascadia Mono",
     "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
     "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  --font-title: solway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  --font-title: bogart, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Microsoft YaHei Light", serif;
   --text-highlight-bg: #ccdba4 !important;
+  --shadow: 1px 1px 3px #88888888;
+  --color-dark: #3E3831 !important;
+  --text-normal: #3E3831 !important;
+}
+
+* {
+  color: #3E3831 !important;
 }
 
 /*reset body*/
 body {
   background-image: none;
   background: #f5f5f0;
+  background: radial-gradient(circle at 47.11% 21.33%, #f5f5f0, transparent 100%),radial-gradient(circle at 14.09% 42.51%, #ffffff, transparent 100%),radial-gradient(circle at 79.38% 44.78%, #f5f5f3, transparent 100%),radial-gradient(circle at 50% 50%, #edebe1, #edebe1 100%);
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+.published-container.has-navigation .nav-backdrop {
+  background: #f5f5f0;
 }
 
 /* font and line spacing */
 .markdown-preview-view {
-  font-size: 1.2rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.8 !important;
   letter-spacing: 0rem;
+  padding: 0px 40px 20px 40px;
 }
 
-/* more space between center content and scroll bar */
-.markdown-preview-view {
-  padding-right: 3rem;
+.markdown-preview-view h1 {
+  font-size: 40px;
+  line-height: 2.2rem;
 }
+
+.markdown-preview-view h2 {
+  font-size: 32px;
+  line-height: 2rem;
+  text-transform: lowercase;
+}
+
+.markdown-preview-view h1, .markdown-preview-view h2, .markdown-preview-view h3, .markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6 {
+  margin-bottom: 1rem; 
+  margin-top: 1rem;
+}
+
+.markdown-preview-view p, .markdown-preview-view ul, .markdown-preview-view ol {
+  margin-bottom: 1.8rem; 
+}
+
 
 /* lock width of overall layout*/
 .site-body {
   margin: auto;
-  max-width: 1400px;
+  max-width: 1500px;
 }
 
 /* more space between page title and content */
@@ -48,7 +89,14 @@ body {
 .site-body-left-column {
   background-color: transparent;
   border-right: none;
+  max-height: 94%;
+  font-size: .8rem;
 }
+
+.site-body-left-column::before {
+  background-color: transparent;
+}
+
 /* add image above left column */
 .site-body-left-column-site-name::before {
   background: none;
@@ -57,15 +105,57 @@ body {
   width: 100%;
 }
 
+/* paddding on left-side list */
+.nav-view-outer {
+  padding-right: 1rem;
+}
+
+/* middle column */
+.site-body-center-column {
+  padding: 1.5rem 0;
+}
+
 /* right column */
 .site-body-right-column {
   margin: 0 20px;
+  width: 250px;
+  flex: 0 0 250px;
+  font-size: .8rem;
+}
+
+/* fade side columns until hover */
+.site-body-left-column, 
+.site-body-right-column {
+  opacity: .3;
+  transition: opacity .7s;
+}
+
+.site-body-left-column:hover, 
+.site-body-right-column:hover,
+.site-body-left-column:active, 
+.site-body-right-column:active {
+  opacity: 1;
 }
 
 /* bolder site title */
 .site-body-left-column-site-name {
   font-weight: 700;
   text-align: center;
+  font-family: var(--font-title);
+}
+
+.site-header {
+  border-bottom: 1px solid var(--color-off);
+  font-weight: 700;
+  font-family: var(--font-title);
+}
+
+/* subheaders */
+.published-section-header {
+  text-transform: lowercase;
+  font-size: 1.4em;
+  font-family: var(--font-title);
+  color: var(--text-normal);
 }
 
 /* search bar tweak */
@@ -85,13 +175,24 @@ input[type="number"] {
   background-image: none;
   background-color: #e9e9e4;
   box-shadow: inset 1px 1px 3px #88888888;
-  border-right: 0.5px solid #ddd;
-  border-bottom: 0.5px solid #ddd;
+  border-right: 0.5px solid #88888888
+  border-bottom: 0.5px solid #88888888;
 }
 
 /* outgoing link arrow */
 .external-link::after {
   font-size: 0.9rem;
+  color: #888888;
+}
+
+/* links on tags pop-up*/
+.internal-link {
+  color: var(--color-blue) !important;
+  text-decoration: none;
+}
+
+.internal-link:hover {
+  text-decoration: underline;
 }
 
 /* fix bullets */
@@ -113,22 +214,33 @@ input[type="number"] {
   background-color: transparent;
   text-decoration: underline;
   color: var(--color-accent) !important;
-  font-weight: 600;
+  font-weight: 700;
+  transition: .5s background-color;
 }
 
 /* menu active and hover */
+.outline-view-outer .tree-item-self, .tree-item-self.is-clickable {
+  background-color: transparent;
+  transition: .5s background-color !important;
+}
+
 .outline-view-outer .tree-item-self.mod-active,
 .nav-view-outer .tree-item-self.mod-active {
   background-color: var(--color-gray-lightest);
   box-shadow: var(--shadow);
-  border-right: 0.5px solid #aaa;
-  border-bottom: 0.5px solid #aaa;
+  border-right: 0.5px solid #88888888;
+  border-bottom: 0.5px solid #88888888;
   width: 99%;
 }
+
 .outline-view-outer .tree-item-self:hover,
 .tree-item-self.is-clickable:hover {
   background-color: var(--color-gray-lightest-fade);
   width: 99%;
+}
+
+.nav-view-outer .tree-item {
+  line-height: 1rem;
 }
 
 /* remove internal link brackets */
@@ -142,12 +254,16 @@ input[type="number"] {
 .markdown-preview-view a {
   color: var(--color-accent) !important;
   text-decoration: none;
+  border-radius: 0;
+  border-bottom: 1px solid transparent;
+  padding: 0;
+  transition: border-bottom .5s;
 }
 
 .markdown-preview-view a:hover {
   color: var(--color-blue) !important;
   background: transparent !important;
-  text-decoration: underline !important;
+  border-bottom: 1px solid var(--color-blue);
 }
 
 /* blockquote background color */
@@ -173,26 +289,29 @@ input[type="number"] {
 /* tags */
 .markdown-preview-view .tag,
 a.tag {
-  background-color: var(--color-purple-lightest) !important;
+  background-color: var(--color-green-lightest) !important;
   color: var(--color-dark) !important;
   border-radius: 5px;
   border: 0px solid transparent;
-  box-shadow: var(--shadow);
-  border-right: 0.5px solid #aaa;
-  border-bottom: 0.5px solid #aaa;
+  transition: none;
+  border-right: 0.5px solid transparent;
+  border-bottom: 0.5px solid transparent;
 }
 
 .markdown-preview-view .tag:hover,
 a.tag:hover {
-  background-color: var(--color-purple-light) !important;
+  background-color: var(--color-green-light) !important;
   color: var(--color-light) !important;
+  box-shadow: var(--shadow);
+  transform: none;
+  text-decoration: none;
 }
 
 /* search bar */
 .search-view-container .search-bar {
   box-shadow: inset 1px 1px 3px #88888888;
-  border-right: 0.5px solid #ddd;
-  border-bottom: 0.5px solid #ddd;
+  border-right: 0.5px solid #88888888;
+  border-bottom: 0.5px solid #88888888;
 }
 
 /* navigation slider on small screens */
@@ -207,28 +326,37 @@ a.tag:hover {
   border: 0px solid transparent;
   background-color: #e9e9e4;
   box-shadow: inset 1px 1px 3px #88888888;
-  border-right: 0.5px solid #ddd;
-  border-bottom: 0.5px solid #ddd;
+  border-right: 0.5px solid #88888888;
+  border-bottom: 0.5px solid #88888888;
+}
+
+/* svg tweaks */
+svg {
+  font-family: var(--font-family-editor);
 }
 
 /* utility classes */
 .right {
   float: right;
-  width: 25%;
-  max-width: 25%;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
+  width: 35%;
+  max-width: 35%;
+  margin-left: .5rem;
+  margin-bottom: .5rem;
 }
 
 .left {
   float: left;
-  width: 25%;
-  max-width: 25%;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  width: 35%;
+  max-width: 35%;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
 }
 
-@media screen and (max-width: 1000px) {
+.hideSmall {
+  display: block;
+}
+
+@media screen and (max-width: 500px) {
   .right,
   .left {
     float: none;
@@ -237,7 +365,7 @@ a.tag:hover {
     margin-left: auto;
     margin-right: auto;
   }
-
+  
   .hideSmall {
     display: none;
   }
@@ -305,4 +433,22 @@ iframe {
   width: 100%;
   height: 100%;
   border: 0;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border-right: 0.5px solid #88888888;
+  border-bottom: 0.5px solid #88888888;
+}
+
+.site-footer {
+  margin-top: 0.5rem;
+}
+
+.site-footer a:hover {
+  color: var(--color-blue) !important;
+}
+
+/* flash of background when choosing an element in the TOC */
+
+.is-flashing {
+  background: var(--color-purple-lightest);
 }
