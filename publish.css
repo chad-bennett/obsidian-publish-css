@@ -440,6 +440,11 @@ iframe {
   border-bottom: 0.5px solid #88888888;
 }
 
+/* tooltips */
+.tooltip, .mod-top {
+  color: #f5f5f0 !important;
+}
+
 .site-footer {
   margin-top: 0.5rem;
 }
