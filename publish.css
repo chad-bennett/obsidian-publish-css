@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
 @font-face {
-	font-family: 'bogart';
-	src: url('https://chad-bennett.github.io/links/bogart-semibold.woff2') format('woff2'),
-	     url('https://chad-bennett.github.io/links/bogart-semibold.woff') format('woff'),
-	     url('https://chad-bennett.github.io/links/bogart-semibold.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'bogart';
+  src: url('https://chad-bennett.github.io/links/bogart-semibold.woff2') format('woff2'),
+    url('https://chad-bennett.github.io/links/bogart-semibold.woff') format('woff'),
+    url('https://chad-bennett.github.io/links/bogart-semibold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* set fonts to default system fonts */
 :root {
-  --font-family-editor: 'DM Sans', inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  --font-family-editor: inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
   --font-monospace: ui-monospace, Menlo, Monaco, "Cascadia Mono",
@@ -24,6 +24,7 @@
   --shadow: 1px 1px 3px #88888888;
   --color-dark: #3E3831 !important;
   --text-normal: #3E3831 !important;
+  --font-size: 18px !important;
 }
 
 * {
@@ -34,10 +35,11 @@
 body {
   background-image: none;
   background: #f5f5f0;
-  background: radial-gradient(circle at 47.11% 21.33%, #f5f5f0, transparent 100%),radial-gradient(circle at 14.09% 42.51%, #ffffff, transparent 100%),radial-gradient(circle at 79.38% 44.78%, #f5f5f3, transparent 100%),radial-gradient(circle at 50% 50%, #edebe1, #edebe1 100%);
+  background: radial-gradient(circle at 47.11% 21.33%, #f5f5f0, transparent 100%), radial-gradient(circle at 14.09% 42.51%, #ffffff, transparent 100%), radial-gradient(circle at 79.38% 44.78%, #f5f5f3, transparent 100%), radial-gradient(circle at 50% 50%, #edebe1, #edebe1 100%);
   text-rendering: optimizeLegibility;
-  font-feature-settings: "kern" 1;
+  font-feature-settings: "kern"1;
   font-kerning: normal;
+  font-size: 18px !important;
 }
 
 .published-container.has-navigation .nav-backdrop {
@@ -46,7 +48,7 @@ body {
 
 /* font and line spacing */
 .markdown-preview-view {
-  font-size: 1rem;
+  font-size: 1.1rem !important;
   line-height: 1.8 !important;
   letter-spacing: 0rem;
   padding: 0px 40px 20px 40px;
@@ -63,20 +65,27 @@ body {
   text-transform: lowercase;
 }
 
-.markdown-preview-view h1, .markdown-preview-view h2, .markdown-preview-view h3, .markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6 {
-  margin-bottom: 1rem; 
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-.markdown-preview-view p, .markdown-preview-view ul, .markdown-preview-view ol {
-  margin-bottom: 1.8rem; 
+.markdown-preview-view p,
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  margin-bottom: 1.8rem;
 }
 
 
 /* lock width of overall layout*/
 .site-body {
   margin: auto;
-  width:90vw;
+  width: 90vw;
   max-width: 1500px;
 }
 
@@ -125,15 +134,15 @@ body {
 }
 
 /* fade side columns until hover */
-.site-body-left-column, 
+.site-body-left-column,
 .site-body-right-column {
-  opacity: .3;
+  opacity: .2;
   transition: opacity .7s;
 }
 
-.site-body-left-column:hover, 
+.site-body-left-column:hover,
 .site-body-right-column:hover,
-.site-body-left-column:active, 
+.site-body-left-column:active,
 .site-body-right-column:active {
   opacity: 1;
 }
@@ -176,8 +185,7 @@ input[type="number"] {
   background-image: none;
   background-color: #e9e9e4;
   box-shadow: inset 1px 1px 3px #88888888;
-  border-right: 0.5px solid #88888888
-  border-bottom: 0.5px solid #88888888;
+  border-right: 0.5px solid #88888888 border-bottom: 0.5px solid #88888888;
 }
 
 /* outgoing link arrow */
@@ -220,7 +228,8 @@ input[type="number"] {
 }
 
 /* menu active and hover */
-.outline-view-outer .tree-item-self, .tree-item-self.is-clickable {
+.outline-view-outer .tree-item-self,
+.tree-item-self.is-clickable {
   background-color: transparent;
   transition: .5s background-color !important;
 }
@@ -258,13 +267,17 @@ input[type="number"] {
   border-radius: 0;
   border-bottom: 1px solid transparent;
   padding: 0;
-  transition: border-bottom .5s;
+  top: 0;
+  transition: border-bottom .4s, padding-bottom .3s, top .3s;
+  position: relative;
 }
 
 .markdown-preview-view a:hover {
   color: var(--color-blue) !important;
   background: transparent !important;
   border-bottom: 1px solid var(--color-blue);
+  padding-bottom: 2px;
+  top: -2px;
 }
 
 /* blockquote background color */
@@ -358,6 +371,7 @@ svg {
 }
 
 @media screen and (max-width: 500px) {
+
   .right,
   .left {
     float: none;
@@ -366,7 +380,7 @@ svg {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .hideSmall {
     display: none;
   }
@@ -441,7 +455,8 @@ iframe {
 }
 
 /* tooltips */
-.tooltip, .mod-top {
+.tooltip,
+.mod-top {
   color: #f5f5f0 !important;
 }
 
@@ -470,6 +485,7 @@ iframe {
   max-width: 80em;
   margin: 2rem auto;
 }
+
 .grid figure,
 .grid img {
   width: 100%;
@@ -477,16 +493,19 @@ iframe {
   margin: 0 auto;
   height: 100%;
 }
+
 .grid img {
   object-fit: cover;
   transition: transform .25s;
   border-radius: .3rem;
 }
+
 .grid img:hover {
   transform: scale(1.1);
   z-index: 1000;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
+
 .grid figcaption {
   text-align: center;
   font-weight: 300;
@@ -494,36 +513,43 @@ iframe {
   padding-bottom: 1rem;
   font-style: italic;
 }
+
 /* column layout for larger screens */
 @media screen and (min-width: 30em) {
   .grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
   }
+
   .grid .col-full {
     grid-column: 1 /7;
   }
+
   .grid .col-double-left {
     grid-column: 1 / 5;
   }
+
   .grid .col-double-right {
     grid-column: 3 / 7;
   }
+
   .grid .col-half-left {
     grid-column: 1 /4;
   }
+
   .grid .col-half-right {
     grid-column: 4 / 7;
   }
 
-  .grid  .col-single-left {
+  .grid .col-single-left {
     grid-column: 1 / 3;
   }
 
   .grid .col-single-mid {
     grid-column: 3 / 5;
   }
-  .grid  .col-single-right {
+
+  .grid .col-single-right {
     grid-column: 5 / 7;
   }
 }
