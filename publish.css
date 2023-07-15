@@ -1,11 +1,8 @@
 @font-face {
   font-family: "bogart";
-  src: url("https://chad-bennett.github.io/links/bogart-semibold.woff2")
-      format("woff2"),
-    url("https://chad-bennett.github.io/links/bogart-semibold.woff")
-      format("woff"),
-    url("https://chad-bennett.github.io/links/bogart-semibold.ttf")
-      format("truetype");
+  src: url("https://chad-bennett.github.io/links/bogart-semibold.woff2") format("woff2"),
+    url("https://chad-bennett.github.io/links/bogart-semibold.woff") format("woff"),
+    url("https://chad-bennett.github.io/links/bogart-semibold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -51,13 +48,23 @@ body {
   font-size: 18px !important;
 }
 
+/* hide right columne*/
+.published-container.is-readable-line-width .site-body-right-column {
+  display: none;
+}
+
+@media screen and (min-width: 1000px)
+body:not(.sliding-windows) .is-readable-line-width.has-outline.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer, body:not(.sliding-windows) .is-readable-line-width.has-graph.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
+    margin-right: 0;
+}
+
 .publish-renderer {
   margin-top: 2rem;
 }
 
 @media screen and (max-width: 750px) {
-  .published-container.has-navigation.is-left-column-open
-    .site-body-left-column,
+
+  .published-container.has-navigation.is-left-column-open .site-body-left-column,
   .published-container.has-navigation .site-header {
     background: var(--color-background);
   }
@@ -113,7 +120,7 @@ body {
 
 /* left column stuff */
 .site-body-left-column {
-  background: var(--color-background);
+  background: none;
   border-right: none;
   padding: 1rem 0 0 2rem;
   height: 95%;
@@ -234,6 +241,10 @@ input[type="text"] {
   letter-spacing: 0;
 }
 
+.published-section-header span {
+  font-family: var(--font-title);
+}
+
 /* tags */
 .published-container .markdown-rendered .tag,
 a.tag {
@@ -352,6 +363,24 @@ iframe {
   color: var(--color-gray-lightest) !important;
 }
 
+/* tables */
+.markdown-rendered table {
+  border: none;
+  background-color: var(--color-gray-lightest);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--background-color);
+  border-radius: var(--radius) !important;
+}
+
+.markdown-preview-view th,
+.markdown-preview-view td {
+  border: 1px solid var(--background-color);
+}
+
+.markdown-rendered thead tr>th:nth-child(2n + 2) {
+  background-color: var(--color-gray-light);
+}
+
 /* utility classes */
 figure:has(.left),
 figure:has(.right) {
@@ -391,11 +420,18 @@ figure:has(.right) {
   display: none;
 }
 
+[data-callout="right-card"] .callout-content,
+[data-callout="left-card"] .callout-content {
+  padding: 0;
+  scale: 1.1;
+}
+
 .hideSmall {
   display: block;
 }
 
 @media screen and (max-width: 500px) {
+
   .right,
   .left {
     float: none;
@@ -465,4 +501,27 @@ figure:has(.right) {
   border-right: none !important;
   border-bottom: none !important;
   border-radius: 0;
+}
+
+/* contact form */
+.forms {
+  min-height: 500px;
+}
+
+.forms .supernova .form-all,
+.forms .form-all {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.forms .formFooter {
+  display: none !important;
+}
+
+.forms .jf-form-buttons:hover {
+  background: #c9ddde !important;
+}
+
+.forms .form-textbox {
+  box-shadow: inset 1px 1px 3px #88888888;
 }
