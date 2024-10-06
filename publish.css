@@ -31,7 +31,7 @@
   --color-blues: #16949b;
   --color-blues-translucent: #c9ddde;
   --border: 0.5px solid transparent;
-  --radius: 0.8rem;
+  --radius: 0.6rem;
   --color-background: linear-gradient(to right bottom, #ebeae8, #edecea, #eeeeeb, #f0efed, #f2f1ef, #f2f1ef, #f2f1ef, #f2f1ef, #f0efed, #eeeeeb, #edecea, #ebeae8);
 }
 
@@ -47,6 +47,7 @@ body {
   font-feature-settings: "kern" 1;
   font-kerning: normal;
   font-size: 18px !important;
+  hyphens: manual !important;
 }
 
 
@@ -451,8 +452,10 @@ iframe {
 
 .callout-title {
   padding: 0.5rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
   width: 100%;
+  font-size: 1.3rem;
+  font-family: var(--font-title);
   border-radius: var(--radius);
 }
 
