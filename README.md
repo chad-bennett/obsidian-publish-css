@@ -6,4 +6,4 @@ as always, an ongoing evolution through tweaking and refinement. i'll try to rem
 
 ---
 
-big rewrite updated on 2023.03.05 because obsidian updated their publish standards which broke some of my css. 
+last update: 2024.10.06
